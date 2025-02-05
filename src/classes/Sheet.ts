@@ -19,8 +19,8 @@ export class Sheet {
     let consecutiveCheckedCards: number = 0;
     
     // Horizontal
-    for (let i = 0; i < this.cards.length; i++) {
-      for (let k = 0; k < this.cards[i].length; k++) {
+    for (let i = 0; i < this.sheetSize; i++) {
+      for (let k = 0; k < this.sheetSize; k++) {
         if (this.cards[i][k].getStatus() == CardStatus.CHECKED) {
           consecutiveCheckedCards++;
         }
@@ -35,8 +35,8 @@ export class Sheet {
     }
 
     // Vertical
-    for (let i = 0; i < this.cards.length; i++) {
-      for (let k = 0; k < this.cards[i].length; k++) {
+    for (let i = 0; i < this.sheetSize; i++) {
+      for (let k = 0; k < this.sheetSize; k++) {
         if (this.cards[k][i].getStatus() == CardStatus.CHECKED) {
           consecutiveCheckedCards++;
         }
@@ -51,7 +51,7 @@ export class Sheet {
     }
 
     // Diagonal
-    for (let i = 0; i < this.cards.length; i++) {
+    for (let i = 0; i < this.sheetSize; i++) {
       if (this.cards[i][i].getStatus() == CardStatus.CHECKED) {
         consecutiveCheckedCards++;
       }
@@ -64,8 +64,8 @@ export class Sheet {
       return true;
     }
 
-    for (let i = 0; i < this.cards.length; i++) {
-      if (this.cards[i][(this.cards.length - 1) - i].getStatus() == CardStatus.CHECKED) {
+    for (let i = 0; i < this.sheetSize; i++) {
+      if (this.cards[i][(this.sheetSize - 1) - i].getStatus() == CardStatus.CHECKED) {
         consecutiveCheckedCards++;
       }
       else {

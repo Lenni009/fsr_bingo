@@ -1,0 +1,42 @@
+.flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.sheet {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bfbfbf;
+  height: 125px;
+  width: 175px;
+  border: 1px solid #ccc !important;
+  border-radius: 16px;
+  text-align: center;
+  user-select: none;
+}
+
+.card p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 17px;
+  color: black;
+}
+
+.card[status="selected"] {
+  background-color: #3f3f3f;
+}
+.card[status="selected"] p {
+  background-color: #3f3f3f;
+  color: white;
+}
