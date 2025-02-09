@@ -7,7 +7,7 @@ dotenv.config();
 module.exports = {
   entry: './src/main.ts',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js'
   },
   resolve: {
@@ -22,7 +22,7 @@ module.exports = {
       }
     ]
   },
-  watch: true, // Aktiviert den Watch-Modus
+  watch: false, // Aktiviert den Watch-Modus
   watchOptions: {
     ignored: /node_modules/, // Ignoriere node_modules beim Überwachen
     aggregateTimeout: 300, // Warte 300ms nach der letzten Änderung

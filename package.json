@@ -2,7 +2,8 @@
     "name": "fsr_bingo",
     "scripts": {
         "start": "ts-node-dev --respawn --transpile-only ./src/main.ts",
-        "build": "webpack"
+        "build": "webpack",
+        "deploy": "webpack && firebase deploy --debug"
     },
     "devDependencies": {
         "dotenv": "^16.4.7",
