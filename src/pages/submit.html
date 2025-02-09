@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FSR-Bingo - Start</title>
+  <title>FSR-Bingo - Hinzufügen</title>
   <link href="../style/home.css" rel="stylesheet">
+	<script type="module" src="../../build/bundle.js"></script> 
 </head>
 <body>
   <div class="flex">
     <img src="../../public/logo.png" alt="logo">
-    <a href="./bingo.html"><img src="../../public/start.png" alt="start" id="startBtn"></a>
-    <a href="./submit.html"><img src="../../public/submit.png" alt="start" id="submitBtn"></a>
+    <h2>Neues Bingo-Feld hinzufügen</h2>
+		<input type="text" id="cardTextInput" value=""> 
+		<button id="submitBtn">Abschicken</button>
+		<p id="feedback"></p>
   </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",                       // Ziel-JavaScript-Version (z.B. es5, es6, etc.)
+    "target": "ES2024",                       // Ziel-JavaScript-Version (z.B. es5, es6, etc.)
     "module": "esnext",                    // Modulauflösung (esnext für moderne JavaScript-Module)
     "outDir": "./build",                   // Zielordner für die kompilierten JavaScript-Dateien
     "rootDir": "./src",                    // Wurzelverzeichnis der TypeScript-Dateien
