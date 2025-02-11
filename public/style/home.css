@@ -1,3 +1,8 @@
+body {
+  background: rgb(75,104,254);
+  background: radial-gradient(circle, rgba(75,104,254,1) 0%, rgba(169,70,252,1) 100%);
+}
+
 .flex {
   display: flex;
   flex-direction: column;
@@ -5,4 +10,38 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+}
+
+h2 {
+  font-family: "Roboto", serif;
+  font-size: 36px;
+}
+
+textarea {
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  height: 250px;
+  width: 350px;
+  border: 2px solid #dbdbdb !important;
+  border-radius: 16px;
+  text-align: center;
+  user-select: none;
+  font-size: 30px;
+  resize: none;
+  vertical-align: middle;
+}
+
+button {
+  padding: 10px 20px 10px 20px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px solid #dbdbdb !important;
+  border-radius: 8px;
+  margin-top: 2%;
+  width: 250px;
+  height: 80px;
+  font-family: "Roboto", serif;
+  font-size: 28px;
 }

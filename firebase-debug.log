@@ -267,3 +267,87 @@
 [debug] [2025-02-09T17:24:10.987Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/channels/live/releases versionName=projects%2F983238781700%2Fsites%2Ffsr-bingo%2Fversions%2Fc06ce6f25de7963e
 [debug] [2025-02-09T17:24:10.987Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/channels/live/releases {}
 [debug] [2025-02-09T17:24:11.606Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/channels/live/releases 200
+[debug] [2025-02-09T17:33:57.787Z] ----------------------------------------------------------------------
+[debug] [2025-02-09T17:33:57.788Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\al3xz\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --debug
+[debug] [2025-02-09T17:33:57.789Z] CLI Version:   13.30.0
+[debug] [2025-02-09T17:33:57.789Z] Platform:      win32
+[debug] [2025-02-09T17:33:57.789Z] Node Version:  v20.9.0
+[debug] [2025-02-09T17:33:57.789Z] Time:          Sun Feb 09 2025 18:33:57 GMT+0100 (Mitteleuropäische Normalzeit)
+[debug] [2025-02-09T17:33:57.789Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-02-09T17:33:57.898Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-02-09T17:33:57.899Z] > authorizing via signed-in user (alexreipr@gmail.com)
+[debug] [2025-02-09T17:33:57.899Z] [iam] checking project fsr-bingo for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-02-09T17:33:57.900Z] Checked if tokens are valid: true, expires at: 1739123508165
+[debug] [2025-02-09T17:33:57.900Z] Checked if tokens are valid: true, expires at: 1739123508165
+[debug] [2025-02-09T17:33:57.901Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/fsr-bingo:testIamPermissions [none]
+[debug] [2025-02-09T17:33:57.901Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/fsr-bingo:testIamPermissions x-goog-quota-user=projects/fsr-bingo
+[debug] [2025-02-09T17:33:57.901Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fsr-bingo:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-02-09T17:33:58.699Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/fsr-bingo:testIamPermissions 200
+[debug] [2025-02-09T17:33:58.700Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fsr-bingo:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-02-09T17:33:58.700Z] Checked if tokens are valid: true, expires at: 1739123508165
+[debug] [2025-02-09T17:33:58.700Z] Checked if tokens are valid: true, expires at: 1739123508165
+[debug] [2025-02-09T17:33:58.701Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fsr-bingo [none]
+[debug] [2025-02-09T17:33:59.064Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fsr-bingo 200
+[debug] [2025-02-09T17:33:59.064Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fsr-bingo {"projectId":"fsr-bingo","projectNumber":"983238781700","displayName":"fsr-bingo","name":"projects/fsr-bingo","resources":{"hostingSite":"fsr-bingo"},"state":"ACTIVE","etag":"1_d622d8e2-a5c8-4176-b3f9-c3699b4e08f3"}
+[info] 
+[info] === Deploying to 'fsr-bingo'...
+[info] 
+[info] i  deploying hosting 
+[info] Running command: npx webpack
+[info] +  hosting: Finished running predeploy script. 
+[debug] [2025-02-09T17:34:03.550Z] Checked if tokens are valid: true, expires at: 1739123508165
+[debug] [2025-02-09T17:34:03.550Z] Checked if tokens are valid: true, expires at: 1739123508165
+[debug] [2025-02-09T17:34:03.550Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/versions [none]
+[debug] [2025-02-09T17:34:03.551Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-02-09T17:34:05.248Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/versions 200
+[debug] [2025-02-09T17:34:05.248Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/versions {"name":"projects/983238781700/sites/fsr-bingo/versions/23490fa1849b3823","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[fsr-bingo]: beginning deploy... 
+[info] i  hosting[fsr-bingo]: found 8 files in public 
+[debug] [2025-02-09T17:34:05.255Z] [hosting] uploading with 200 concurrency
+[debug] [2025-02-09T17:34:05.257Z] Checked if tokens are valid: true, expires at: 1739123508165
+[debug] [2025-02-09T17:34:05.257Z] Checked if tokens are valid: true, expires at: 1739123508165
+[debug] [2025-02-09T17:34:05.258Z] [hosting] hash cache [cHVibGlj] stored for 8 files
+[debug] [2025-02-09T17:34:05.258Z] [hosting][hash queue][FINAL] {"max":1,"min":0,"avg":0,"active":0,"complete":8,"success":8,"errored":0,"retried":0,"total":8,"elapsed":2}
+[debug] [2025-02-09T17:34:05.258Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/983238781700/sites/fsr-bingo/versions/23490fa1849b3823:populateFiles [none]
+[debug] [2025-02-09T17:34:05.259Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/983238781700/sites/fsr-bingo/versions/23490fa1849b3823:populateFiles {"files":{"/submit.html":"3572a336f7112dba466b994c0d4658e96bab50c76ad41f14b29a3d214ff0e199","/index.html":"0e2495b0aa89d7d7a566a070c614231d79401ee1fd44b2ba7e657cad1df90519","/bundle.js.LICENSE.txt":"898d25599a4bfdd9fdc08b0b415ea98b88d6583dee449f9efa6d1fb2e8e8b505","/bundle.js":"7394d365195529e7f8a8f752abf2558715c8ee46ae8ecff64e355a61161ffe90","/bingo.html":"9ed9b3619aec5ed838b2a984695dcdcf5326e482c7d3f910a17cc687206a3c83","/404.html":"b342097c1356f70159a3af7147611868cf46fd4e3766d31062f50f33838e2dad","/style/home.css":"e99ff75fca353459b0304ec09499025db453f89e14a963545779910074053f29","/style/bingo.css":"35e5e0e684fba6a9990a69a4d5c3355ad1f5937bd53e0ce22645aac48adc8455"}}
+[debug] [2025-02-09T17:34:05.737Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/983238781700/sites/fsr-bingo/versions/23490fa1849b3823:populateFiles 200
+[debug] [2025-02-09T17:34:05.737Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/983238781700/sites/fsr-bingo/versions/23490fa1849b3823:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/fsr-bingo/versions/23490fa1849b3823/files"}
+[debug] [2025-02-09T17:34:05.737Z] [hosting][populate queue][FINAL] {"max":480,"min":480,"avg":480,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":480}
+[debug] [2025-02-09T17:34:05.737Z] [hosting] uploads queued: 0
+[debug] [2025-02-09T17:34:05.738Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1739122445738}
+[info] i  hosting: upload complete 
+[info] +  hosting[fsr-bingo]: file upload complete 
+[debug] [2025-02-09T17:34:05.738Z] [hosting] deploy completed after 489ms
+[debug] [2025-02-09T17:34:05.738Z] [
+  {
+    "config": {
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "predeploy": [
+        "npx webpack"
+      ],
+      "site": "fsr-bingo"
+    },
+    "version": "projects/983238781700/sites/fsr-bingo/versions/23490fa1849b3823"
+  }
+]
+[info] i  hosting[fsr-bingo]: finalizing version... 
+[debug] [2025-02-09T17:34:05.739Z] Checked if tokens are valid: true, expires at: 1739123508165
+[debug] [2025-02-09T17:34:05.739Z] Checked if tokens are valid: true, expires at: 1739123508165
+[debug] [2025-02-09T17:34:05.740Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/versions/23490fa1849b3823 updateMask=status%2Cconfig
+[debug] [2025-02-09T17:34:05.740Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/versions/23490fa1849b3823 {"status":"FINALIZED","config":{}}
+[debug] [2025-02-09T17:34:06.351Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/versions/23490fa1849b3823 200
+[debug] [2025-02-09T17:34:06.352Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/versions/23490fa1849b3823 {"name":"projects/983238781700/sites/fsr-bingo/versions/23490fa1849b3823","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-02-09T17:34:04.766362Z","createUser":{"email":"alexreipr@gmail.com"},"finalizeTime":"2025-02-09T17:34:06.490273Z","finalizeUser":{"email":"alexreipr@gmail.com"}}
+[debug] [2025-02-09T17:34:06.352Z] [hosting] finalized version for fsr-bingo:[object Object]
+[info] +  hosting[fsr-bingo]: version finalized 
+[info] i  hosting[fsr-bingo]: releasing new version... 
+[debug] [2025-02-09T17:34:06.352Z] Checked if tokens are valid: true, expires at: 1739123508165
+[debug] [2025-02-09T17:34:06.352Z] Checked if tokens are valid: true, expires at: 1739123508165
+[debug] [2025-02-09T17:34:06.352Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/channels/live/releases versionName=projects%2F983238781700%2Fsites%2Ffsr-bingo%2Fversions%2F23490fa1849b3823
+[debug] [2025-02-09T17:34:06.353Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/channels/live/releases {}
+[debug] [2025-02-09T17:34:06.989Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/fsr-bingo/channels/live/releases 200
