@@ -12,6 +12,11 @@ body {
   align-items: center;
 }
 
+a img {
+  padding-top: 50px;
+  margin-bottom: 120px;
+}
+
 .sheet {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

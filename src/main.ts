@@ -130,11 +130,11 @@ function submitCardToDb(): void {
         feedbackEl.innerHTML = "Vorschlag wurde eingereicht! 🎉";
       })
       .catch(() => {
-        feedbackEl.innerHTML = "Etwas ist schiefgegangen :( Bitte kontaktiere das Technik-Amt 🤠";
+        feedbackEl.innerHTML = "Etwas ist schiefgegangen :( Bitte kontaktiere das Technik-Amt 😵";
       })
   }
   catch(e) {
-    feedbackEl.innerHTML = "Etwas ist schiefgegangen :( Bitte kontaktiere das Technik-Amt 🤠";
+    feedbackEl.innerHTML = "Etwas ist schiefgegangen :( Bitte kontaktiere das Technik-Amt 😵";
   }
 }
 
