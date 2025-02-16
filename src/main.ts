@@ -70,9 +70,17 @@ function updateSheet(_sheet: Sheet): void {
       let curCard = getId("card" + i + "" + k)!;
       if (curCard.getAttribute("status") == "selected" && cards[i][k].getStatus() === CardStatus.OPEN) {
         curCard.setAttribute("status", "not-selected");
+        const existingImg = curCard.querySelector('img');
+        if (existingImg) {
+          existingImg.remove();
+        }
       }
       else if (curCard.getAttribute("status") == "not-selected" && cards[i][k].getStatus() === CardStatus.CHECKED) {
         curCard.setAttribute("status", "selected");
+        const img = document.createElement('img');
+        img.src = "./assets/x" + Math.floor(Math.random()*4) + ".png";
+
+        curCard.appendChild(img);
       }
     }
   }
@@ -146,7 +154,7 @@ function generateSheet(_texts: string[]): Sheet {
   return sheet;
 }
 
-switch (document.location.href.split("/").pop()) { // todo: make this better because what is this
+switch (document.location.href.split("/").pop()) { // todo: make this loading better because what is this
   case "submit.html": 
     appendEventListeners();
     break;
