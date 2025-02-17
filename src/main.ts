@@ -45,15 +45,17 @@ const db = getFirestore(app);
 let sheet: HTMLElement = getClass("sheet")!;
 
 // render sheet for the first time
-function displaySheet(_sheet: Sheet): void {
+function displaySheet(_sheet: Sheet, _viewOnly: boolean = false): void {
   let cards = _sheet.getCards();
   for (let i = 0; i < cards.length; i++) {
     for (let k = 0 ; k < cards[i].length; k++) {
       let cardDom: HTMLDivElement = document.createElement("div");
       cardDom.id = "card" + i + "" + k;
       cardDom.classList.add("card");
-      cardDom.setAttribute("status", "not-selected");
-      cardDom.addEventListener("click", () => {cards[i][k].toggleStatus(); updateSheet(_sheet);});
+      if (!_viewOnly) {
+        cardDom.setAttribute("status", "not-selected");
+        cardDom.addEventListener("click", () => {cards[i][k].toggleStatus(); updateSheet(_sheet);});
+      }
       let cardDomText: HTMLParagraphElement = document.createElement("p"); 
       cardDomText.innerHTML = cards[i][k].getText();
       cardDom.appendChild(cardDomText);
@@ -115,6 +117,22 @@ async function getTextsFromDb(_amount: number = 25): Promise<string[]> {
   }
 }
 
+async function getAllTextsFromDb(): Promise<string[]> {
+  try {
+    let cardTexts: string[] = [];
+    const cardsCollectionRef = collection(db, 'cards');
+    const querySnapshot = await getDocs(cardsCollectionRef);
+    querySnapshot.forEach((doc) => {
+      cardTexts.push(doc.data().text);
+    });
+    return cardTexts;
+  }
+  catch (e) {
+    console.error("Error: ", e);
+    return [];
+  }
+}
+
 function submitCardToDb(): void {
   const feedbackEl = getId("feedback")!;
   feedbackEl.innerHTML = "";
@@ -141,15 +159,17 @@ function submitCardToDb(): void {
 function generateSheet(_texts: string[]): Sheet {
   let cards: Card[][] = [];
   let curRow: Card[] = [];
-  for (let i = 0; i <= _texts.length; i++) {
+  for (let i = 0; i < _texts.length; i++) {
     if ((i % 5 == 0) && i != 0) { // todo: make this less insane
       cards.push(curRow);
       curRow = [];
     }
     let card: Card = new Card(_texts[i]);
     curRow.push(card);
-  } 
-  console.log(cards);
+  }
+  if (curRow.length >= 0) {
+    cards.push(curRow);
+  }
   let sheet: Sheet = new Sheet(cards, cards.length);
   return sheet;
 }
@@ -157,6 +177,7 @@ function generateSheet(_texts: string[]): Sheet {
 switch (document.location.href.split("/").pop()) { // todo: make this loading better because what is this
   case "submit.html": 
     appendEventListeners();
+    displaySheet(generateSheet(await getAllTextsFromDb()), true);
     break;
   case "bingo.html":
     displaySheet(generateSheet(await getTextsFromDb()));
