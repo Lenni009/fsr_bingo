@@ -1,0 +1,11 @@
+:root {
+  --fsr-color-dark: #110032;
+  --fsr-color-dark-medium: #280e5b;
+  --fsr-color-medium: #9662ff;
+  --fsr-color-light: #e9dffa;
+
+  --background-color: var(--fsr-color-medium);
+  --card-border-color: var(--fsr-color-light);
+  --card-background-color: var(--fsr-color-dark-medium);
+  --card-text-color: var(--fsr-color-light);
+}

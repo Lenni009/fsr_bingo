@@ -15,14 +15,14 @@ const crossUrl = crosses[randomCrossId];
 
 <template>
   <div class="card-container">
-    <img
-      v-if="isCrossed"
-      :src="crossUrl"
-      alt="Cross"
-      class="cross"
-    />
     <button @click="emit('cross')">
-      {{ text }}
+      <img
+        v-if="isCrossed"
+        :src="crossUrl"
+        alt="Cross"
+        class="cross"
+      />
+      <span class="btn-text">{{ text }}</span>
     </button>
   </div>
 </template>
@@ -30,13 +30,33 @@ const crossUrl = crosses[randomCrossId];
 <style scoped>
 .card-container {
   container-type: inline-size;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  aspect-ratio: 1;
+  background-color: var(--card-background-color);
+  color: var(--card-text-color);
+  border-color: white;
+  border-radius: 1rem;
+  user-select: none;
+
+  button {
+    all: unset;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .btn-text {
+      margin: 1rem;
+      text-align: center;
+    }
+  }
 
   .cross {
-    display: absolute;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100cqw;
