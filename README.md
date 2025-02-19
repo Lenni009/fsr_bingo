@@ -1,6 +1,6 @@
 # fsr_bingo
 
-A small web app that creates a bingo sheet of a collection of cards stored in a Firebase Store.
+A small web app that creates a bingo sheet of a collection of cards stored in an array in the code.
 
 Created for the [Fachschaftsrat Informatik und Medien](https://fsrim.htwk-leipzig.de/der-fachschaftsrat) at the HTWK Leipzig.
 
