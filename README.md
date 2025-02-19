@@ -23,4 +23,4 @@ FIREBASE_APP_ID=XXXXXXX
 
 ## Disclaimer
 
-This is a not a serious project, code quality is worse than in other projects.
+This is a not a serious project, code quality is worse than in other projects 🤠
