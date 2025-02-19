@@ -1,6 +1,6 @@
 body {
-  background: rgb(75,104,254);
-  background: radial-gradient(circle, rgba(75,104,254,1) 0%, rgba(169,70,252,1) 100%);
+  background: rgb(75, 104, 254);
+  background: radial-gradient(circle, rgba(75, 104, 254, 1) 0%, rgba(169, 70, 252, 1) 100%);
 }
 
 .flex {
@@ -52,7 +52,7 @@ a img {
 }
 
 .card p {
-  font-family: "Roboto", serif;
+  font-family: 'Roboto', serif;
   font-size: 17px;
   color: black;
   position: absolute;
@@ -60,13 +60,13 @@ a img {
 }
 
 h2 {
-  font-family: "Comic Neue", serif;
+  font-family: 'Comic Neue', serif;
   font-size: 36px;
   font-weight: bolder;
 }
 
 p {
-  font-family: "Comic Neue", serif;
+  font-family: 'Comic Neue', serif;
   font-size: 36px;
 }
 
@@ -95,7 +95,7 @@ button {
   margin-top: 2%;
   width: 250px;
   height: 80px;
-  font-family: "Comic Neue", serif;
+  font-family: 'Comic Neue', serif;
   font-size: 28px;
   font-weight: bolder;
 }

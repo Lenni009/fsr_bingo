@@ -1,6 +1,6 @@
 body {
-  background: rgb(75,104,254);
-  background: radial-gradient(circle, rgba(75,104,254,1) 0%, rgba(169,70,252,1) 100%);
+  background: rgb(75, 104, 254);
+  background: radial-gradient(circle, rgba(75, 104, 254, 1) 0%, rgba(169, 70, 252, 1) 100%);
 }
 
 .flex {
@@ -39,7 +39,7 @@ a img {
 }
 
 .card p {
-  font-family: "Roboto", serif;
+  font-family: 'Roboto', serif;
   font-size: 17px;
   color: black;
   position: absolute;
