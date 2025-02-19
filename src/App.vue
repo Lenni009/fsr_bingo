@@ -5,11 +5,11 @@ import Card from '@/components/Card.vue';
 import type { Card as ICard } from '@/types/card';
 import { reactive, ref, watchEffect } from 'vue';
 import { paginate } from '@/helpers/paginate';
-import { bingoSize } from '@/variables/bingoSize';
+import { amountOfBingoCards, bingoSize } from '@/variables/bingoSize';
 
 const isBingo = ref(false);
 
-const randomCards = randomiseArray(cards);
+const randomCards = randomiseArray(cards).slice(0, amountOfBingoCards);
 const cardObjects = reactive(
   randomCards.map<ICard>((text) => ({
     text,
@@ -82,7 +82,10 @@ watchEffect(() => {
         class="bingo"
         src="./assets/bingo.png"
       />
-      <div class="card-grid">
+      <div
+        :style="`--bingo-size: ${bingoSize}`"
+        class="card-grid"
+      >
         <Card
           v-for="card in cardObjects"
           v-bind="card"
@@ -108,7 +111,7 @@ watchEffect(() => {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(var(--bingo-size), 1fr);
   gap: 1rem;
   flex: 1;
 }

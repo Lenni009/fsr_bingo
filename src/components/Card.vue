@@ -36,7 +36,7 @@ const crossUrl = crosses[randomCrossId];
   aspect-ratio: 1;
   background-color: var(--card-background-color);
   color: var(--card-text-color);
-  border-color: white;
+  border: 2px solid var(--card-border-color);
   border-radius: 1rem;
   user-select: none;
 
