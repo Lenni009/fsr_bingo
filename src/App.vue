@@ -104,7 +104,6 @@ watchEffect(() => {
 .main-img {
   display: block;
   margin-inline: auto;
-  max-width: 100%;
 }
 
 .card-grid {

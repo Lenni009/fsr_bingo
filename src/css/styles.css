@@ -9,3 +9,7 @@ html {
   scrollbar-gutter: stable;
   background-color: var(--background-color);
 }
+
+img {
+  max-width: 100%;
+}
