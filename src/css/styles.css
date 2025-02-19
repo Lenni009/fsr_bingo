@@ -8,5 +8,4 @@ body {
 html {
   scrollbar-gutter: stable;
   background-color: var(--background-color);
-  line-height: 1.3rem;
 }

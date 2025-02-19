@@ -50,8 +50,11 @@ const crossUrl = crosses[randomCrossId];
     position: relative;
 
     .btn-text {
+      --font-size: clamp(0.5rem, 2.5vw, 1rem);
       margin: 1rem;
       text-align: center;
+      font-size: var(--font-size);
+      line-height: calc(var(--font-size) * var(--font-size));
     }
   }
 
