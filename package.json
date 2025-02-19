@@ -1,21 +1,24 @@
 {
-    "name": "fsr_bingo",
-    "scripts": {
-        "start": "ts-node-dev --respawn --transpile-only ./src/main.ts",
-        "build": "webpack",
-        "deploy": "webpack && firebase deploy --debug"
-    },
-    "devDependencies": {
-        "dotenv": "^16.4.7",
-        "dotenv-webpack": "^8.1.0",
-        "ts-loader": "^9.5.2",
-        "typescript": "^5.3.2",
-        "webpack": "^5.97.1",
-        "webpack-cli": "^5.1.4"
-    },
-    "dependencies": {
-        "firebase": "^9.23.0",
-        "ts-node": "^10.9.1",
-        "ts-node-dev": "^2.0.0"
-    }
+  "name": "fsr-bingo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "peerjs": "^1.5.4",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0",
+    "vue-tsc": "^2.2.0"
+  }
 }
