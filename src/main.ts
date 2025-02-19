@@ -87,9 +87,8 @@ function updateSheet(_sheet: Sheet): void {
     }
   }
   if (_sheet.checkForBingo()) {
-    let bingoEl: HTMLElement = document.createElement("p");
-    bingoEl.innerHTML = "BINGO!";
-    getClass("sheet").appendChild(bingoEl);
+    let bingoImg: HTMLImageElement = <HTMLImageElement>getId("bingoImg")!;
+    bingoImg.style.display = "block";
     let cards = _sheet.getCards();
     for (let i = 0; i < cards.length; i++) {
       for (let k = 0 ; k < cards[i].length; k++) {
