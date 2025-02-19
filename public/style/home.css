@@ -24,7 +24,6 @@ body {
 
 a img {
   padding-top: 50px;
-  margin-bottom: 120px;
 }
 
 #startBtn {
@@ -101,3 +100,6 @@ button {
   font-weight: bolder;
 }
 
+#mknm {
+  width: 30%;
+}
