@@ -8,4 +8,9 @@ body {
 html {
   scrollbar-gutter: stable;
   background-color: var(--background-color);
+  font-family: sans-serif;
+}
+
+img {
+  max-width: 100%;
 }
