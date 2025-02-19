@@ -10,16 +10,17 @@ import { bingoSize } from '@/variables/bingoSize';
 const isBingo = ref(false);
 
 const randomCards = randomiseArray(cards);
-const cardObjects = reactive(randomCards.map<ICard>((text) => ({
-  text,
-  isCrossed: false,
-})));
+const cardObjects = reactive(
+  randomCards.map<ICard>((text) => ({
+    text,
+    isCrossed: false,
+  }))
+);
 
 const paginatedCards = paginate(cardObjects, bingoSize);
 
 function cross(card: ICard) {
   card.isCrossed = !card.isCrossed;
-  console.log('click');
 }
 
 watchEffect(() => {
@@ -29,32 +30,37 @@ watchEffect(() => {
   results.push(paginatedCards.some((row) => row.every((card) => card.isCrossed)));
 
   // one column full
+  const colsTicked: boolean[] = [];
   for (let colIdx = 0; colIdx < (paginatedCards[0]?.length ?? 0); colIdx++) {
     const colTickedStatus: boolean[] = [];
 
     for (const row of paginatedCards) {
       colTickedStatus.push(row[colIdx].isCrossed);
     }
-
-    results.push(colTickedStatus.every(Boolean));
+    colsTicked.push(colTickedStatus.every(Boolean));
   }
+  results.push(colsTicked.some(Boolean));
 
   // diagonal
+  const diagonalTicked: boolean[] = [];
+  const identityCrossed: boolean[] = [];
+  const antiIdentityCrossed: boolean[] = [];
   for (let rowIdx = 0; rowIdx < paginatedCards.length; rowIdx++) {
-    const colTickedStatus: boolean[] = [];
-
     // top-left to bottom-right
-    const isIdentityCrossed = paginatedCards[rowIdx][rowIdx].isCrossed;
+    identityCrossed.push(paginatedCards[rowIdx][rowIdx].isCrossed);
 
     // bottom-right to top-left
     // .length returns 1-based, so we need to subtract 1
     const antiIdentityIndex = paginatedCards[rowIdx].length - 1 - rowIdx;
-    const isAntiIdentityCrossed = paginatedCards[rowIdx][antiIdentityIndex].isCrossed;
-
-    colTickedStatus.push(isIdentityCrossed || isAntiIdentityCrossed);
-    results.push(colTickedStatus.every(Boolean));
+    antiIdentityCrossed.push(paginatedCards[rowIdx][antiIdentityIndex].isCrossed);
   }
+  const isIdentityCrossed = identityCrossed.every(Boolean);
+  const isAntiIdentityCrossed = antiIdentityCrossed.every(Boolean);
 
+  diagonalTicked.push(isIdentityCrossed, isAntiIdentityCrossed);
+  results.push(diagonalTicked.some(Boolean));
+
+  // final bingo evaluation
   isBingo.value = results.some(Boolean);
 });
 </script>
@@ -69,13 +75,21 @@ watchEffect(() => {
       />
     </header>
 
-    <main class="card-grid">
-      <Card
-        v-for="card in cardObjects"
-        v-bind="card"
-        :key="card.text"
-        @cross="cross(card)"
+    <main class="main-container">
+      <img
+        v-if="isBingo"
+        alt="Bingo! Schriftzug"
+        class="bingo"
+        src="./assets/bingo.png"
       />
+      <div class="card-grid">
+        <Card
+          v-for="card in cardObjects"
+          v-bind="card"
+          :key="card.text"
+          @cross="cross(card)"
+        />
+      </div>
     </main>
   </div>
 </template>
@@ -97,9 +111,19 @@ watchEffect(() => {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
+  flex: 1;
 }
 
-main {
+.main-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 5rem;
+}
+
+.bingo {
+  position: absolute;
+  z-index: 1;
 }
 </style>
