@@ -4,23 +4,20 @@ A small web app that creates a bingo sheet of a collection of cards stored in a 
 
 Created for the [Fachschaftsrat Informatik und Medien](https://fsrim.htwk-leipzig.de/der-fachschaftsrat) at the HTWK Leipzig.
 
-## How to install
-1. Clone repository -> `git clone https://github.com/alexanderreiprich/fsr_bingo`
+## Project Setup
 
-2. Create a .env file in the root folder with your firebase credentials:
-```
-FIREBASE_API_KEY=XXXXXXX
-FIREBASE_AUTH_DOMAIN=XXXXXXX
-FIREBASE_PROJECT_ID=XXXXXX
-FIREBASE_STORAGE_BUCKET=XXXXXX
-FIREBASE_MESSAGING_SENDER_ID=XXXXXXX
-FIREBASE_APP_ID=XXXXXXX
+```sh
+npm install
 ```
 
-3. Run `npm i` and `webpack build` in the root folder
+### Compile and Hot-Reload for Development
 
-4. Open `index.html` in your browser via a live server or a deployment 
+```sh
+npm run dev
+```
 
-## Disclaimer
+### Type-Check, Compile and Minify for Production
 
-This is a not a serious project, code quality is worse than in other projects 🤠
+```sh
+npm run build
+```
