@@ -88,6 +88,7 @@ watchEffect(() => {
       >
         <div class="bingo-alert">
           <img
+            v-if="isBingo"
             alt="Bingo! Schriftzug"
             src="./assets/bingo.png"
           />
