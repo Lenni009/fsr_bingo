@@ -153,7 +153,7 @@ watchEffect(() => {
   }
 
   .hide-bingo-btn {
-    font-size: 2rem;
+    font-size: clamp(1rem, 5vw, 2rem);
     padding: 1rem;
     background-color: var(--fsr-color-light);
     border: 2px solid var(--fsr-color-medium);
