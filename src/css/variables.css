@@ -8,4 +8,6 @@
   --card-border-color: var(--fsr-color-light);
   --card-background-color: var(--fsr-color-dark-medium);
   --card-text-color: var(--fsr-color-light);
+
+  --border-radius: 1rem;
 }

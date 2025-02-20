@@ -9,6 +9,8 @@ import { amountOfBingoCards, bingoSize } from '@/variables/bingoSize';
 
 const isBingo = ref(false);
 
+const bingoDialog = ref<HTMLDialogElement | null>(null);
+
 const randomCards = randomiseArray(cards).slice(0, amountOfBingoCards);
 const cardObjects = reactive(
   randomCards.map<ICard>((text) => ({
@@ -22,6 +24,10 @@ const paginatedCards = paginate(cardObjects, bingoSize);
 function cross(card: ICard) {
   card.isCrossed = !card.isCrossed;
 }
+
+watchEffect(() => {
+  if (isBingo.value) bingoDialog.value?.showModal();
+});
 
 watchEffect(() => {
   const results: boolean[] = [];
@@ -76,12 +82,20 @@ watchEffect(() => {
     </header>
 
     <main class="main-container">
-      <img
-        v-if="isBingo"
-        alt="Bingo! Schriftzug"
-        class="bingo"
-        src="./assets/bingo.png"
-      />
+      <dialog
+        class="bingo-alert-wrapper"
+        ref="bingoDialog"
+      >
+        <div class="bingo-alert">
+          <img
+            alt="Bingo! Schriftzug"
+            src="./assets/bingo.png"
+          />
+          <form method="dialog">
+            <button class="hide-bingo-btn">Zurück zum Spiel</button>
+          </form>
+        </div>
+      </dialog>
       <div
         :style="`--bingo-size: ${bingoSize}`"
         class="card-grid"
@@ -124,8 +138,38 @@ watchEffect(() => {
   margin-bottom: 5rem;
 }
 
-.bingo {
-  position: absolute;
-  z-index: 1;
+.bingo-alert-wrapper {
+  border: none;
+  background-color: transparent;
+
+  &::backdrop {
+    backdrop-filter: blur(0.1rem);
+  }
+
+  .bingo-alert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hide-bingo-btn {
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: var(--fsr-color-light);
+    border: 2px solid var(--fsr-color-medium);
+    border-radius: var(--border-radius);
+    color: var(--fsr-color-medium);
+    transition:
+      border-color 0.2s ease-in-out,
+      color 0.2s ease-in-out,
+      background-color 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--fsr-color-medium);
+      border-color: var(--fsr-color-light);
+      color: var(--fsr-color-light);
+    }
+  }
 }
 </style>

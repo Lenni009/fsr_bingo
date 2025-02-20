@@ -35,7 +35,7 @@ const crossUrl = crosses[randomCrossId];
   background-color: var(--card-background-color);
   color: var(--card-text-color);
   border: 2px solid var(--card-border-color);
-  border-radius: 1rem;
+  border-radius: var(--border-radius);
   user-select: none;
   cursor: pointer;
   transition: border-color 0.2s ease-in-out;
