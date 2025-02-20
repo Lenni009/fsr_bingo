@@ -160,9 +160,9 @@ watchEffect(() => {
     border-radius: var(--border-radius);
     color: var(--fsr-color-medium);
     transition:
-      border-color 0.2s ease-in-out,
-      color 0.2s ease-in-out,
-      background-color 0.2s ease-in-out;
+      border-color var(--transition),
+      color var(--transition),
+      background-color var(--transition);
     cursor: pointer;
 
     &:hover {

@@ -38,7 +38,7 @@ const crossUrl = crosses[randomCrossId];
   border-radius: var(--border-radius);
   user-select: none;
   cursor: pointer;
-  transition: border-color 0.2s ease-in-out;
+  transition: border-color var(--transition);
 
   &:has(:hover, :focus-visible) {
     border-color: var(--fsr-color-dark);

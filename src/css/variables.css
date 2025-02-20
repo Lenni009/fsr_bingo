@@ -10,4 +10,5 @@
   --card-text-color: var(--fsr-color-light);
 
   --border-radius: 1rem;
+  --transition: 0.2s ease-in-out;
 }
