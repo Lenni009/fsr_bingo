@@ -90,7 +90,7 @@ watchEffect(() => {
           v-for="card in cardObjects"
           v-bind="card"
           :key="card.text"
-          @cross="cross(card)"
+          @click="cross(card)"
         />
       </div>
     </main>
