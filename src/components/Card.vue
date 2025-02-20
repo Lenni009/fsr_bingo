@@ -17,7 +17,7 @@ const crossUrl = crosses[randomCrossId];
       <img
         v-if="isCrossed"
         :src="crossUrl"
-        alt="Cross"
+        alt="Kreuz"
         class="cross"
       />
       <span class="btn-text">{{ text }}</span>
