@@ -97,8 +97,8 @@ watchEffect(() => {
         </div>
       </dialog>
       <div
-        :style="`--bingo-size: ${bingoSize}`"
         class="card-grid"
+        :style="`--bingo-size: ${bingoSize}`"
       >
         <Card
           v-for="card in cardObjects"
