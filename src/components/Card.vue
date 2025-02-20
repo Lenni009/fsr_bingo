@@ -5,8 +5,6 @@ import { crosses } from '@/variables/crosses';
 
 defineProps<Card>();
 
-const emit = defineEmits(['cross']);
-
 const amountOfCrosses = crosses.length;
 const randomCrossId = getRndInteger(0, amountOfCrosses);
 
@@ -15,11 +13,11 @@ const crossUrl = crosses[randomCrossId];
 
 <template>
   <div class="card-container">
-    <button @click="emit('cross')">
+    <button>
       <img
         v-if="isCrossed"
         :src="crossUrl"
-        alt="Cross"
+        alt="Kreuz"
         class="cross"
       />
       <span class="btn-text">{{ text }}</span>
@@ -37,8 +35,14 @@ const crossUrl = crosses[randomCrossId];
   background-color: var(--card-background-color);
   color: var(--card-text-color);
   border: 2px solid var(--card-border-color);
-  border-radius: 1rem;
+  border-radius: var(--border-radius);
   user-select: none;
+  cursor: pointer;
+  transition: border-color var(--transition);
+
+  &:has(:hover, :focus-visible) {
+    border-color: var(--fsr-color-dark);
+  }
 
   button {
     all: unset;
