@@ -12,22 +12,21 @@ const crossUrl = crosses[randomCrossId];
 </script>
 
 <template>
-  <div class="card-container">
-    <button>
-      <img
-        v-if="isCrossed"
-        :src="crossUrl"
-        alt="Kreuz"
-        class="cross"
-      />
-      <span class="btn-text">{{ text }}</span>
-    </button>
-  </div>
+  <button class="card-container">
+    <img
+      v-if="isCrossed"
+      :src="crossUrl"
+      alt="Kreuz"
+      class="cross"
+    />
+    <span class="btn-text">{{ text }}</span>
+  </button>
 </template>
 
 <style scoped>
 .card-container {
-  container-type: inline-size;
+  all: unset;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,26 +39,16 @@ const crossUrl = crosses[randomCrossId];
   cursor: pointer;
   transition: border-color var(--transition);
 
-  &:has(:hover, :focus-visible) {
+  &:is(:hover, :focus-visible) {
     border-color: var(--fsr-color-dark);
   }
 
-  button {
-    all: unset;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-
-    .btn-text {
-      --font-size: clamp(0.5rem, 2.5vw, 1rem);
-      margin: 1rem;
-      text-align: center;
-      font-size: var(--font-size);
-      line-height: calc(var(--font-size) * var(--font-size));
-    }
+  .btn-text {
+    --font-size: clamp(0.5rem, 2.5vw, 1rem);
+    margin: 1rem;
+    text-align: center;
+    font-size: var(--font-size);
+    line-height: calc(var(--font-size) * var(--font-size));
   }
 
   .cross {
