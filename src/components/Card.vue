@@ -53,7 +53,7 @@ const crossUrl = crosses[randomCrossId];
 
   .cross {
     position: absolute;
-    width: 100cqw;
+    width: 100%;
     aspect-ratio: 1;
   }
 }
