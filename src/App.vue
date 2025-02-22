@@ -98,13 +98,13 @@ watchEffect(() => {
         </div>
       </dialog>
       <div
-        class="card-grid"
         :style="`--bingo-size: ${bingoSize}`"
+        class="card-grid"
       >
         <Card
-          v-for="card in cardObjects"
+          v-for="(card, index) in cardObjects"
           v-bind="card"
-          :key="card.text"
+          :key="index"
           @click="cross(card)"
         />
       </div>
