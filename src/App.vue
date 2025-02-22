@@ -30,44 +30,47 @@ watchEffect(() => {
 });
 
 watchEffect(() => {
-  const results: boolean[] = [];
+  let result = false;
 
   // one row full
-  results.push(paginatedCards.some((row) => row.every((card) => card.isCrossed)));
+  result = paginatedCards.some((row) => row.every((card) => card.isCrossed));
 
   // one column full
-  const colsTicked: boolean[] = [];
-  for (let colIdx = 0; colIdx < (paginatedCards[0]?.length ?? 0); colIdx++) {
-    const colTickedStatus: boolean[] = [];
+  if (!result) {
+    let isColTicked = false;
+    for (let colIdx = 0; colIdx < bingoSize; colIdx++) {
+      let cardsInColCrossed = 0;
 
-    for (const row of paginatedCards) {
-      colTickedStatus.push(row[colIdx].isCrossed);
+      for (const row of paginatedCards) {
+        if (row[colIdx].isCrossed) cardsInColCrossed++;
+      }
+      isColTicked = cardsInColCrossed === bingoSize;
+      if (isColTicked) break;
     }
-    colsTicked.push(colTickedStatus.every(Boolean));
+    result = isColTicked;
   }
-  results.push(colsTicked.some(Boolean));
 
-  // diagonal
-  const diagonalTicked: boolean[] = [];
-  const identityCrossed: boolean[] = [];
-  const antiIdentityCrossed: boolean[] = [];
-  for (let rowIdx = 0; rowIdx < paginatedCards.length; rowIdx++) {
-    // top-left to bottom-right
-    identityCrossed.push(paginatedCards[rowIdx][rowIdx].isCrossed);
+  if (!result) {
+    // diagonal
+    let cardsInIdentityCrossed = 0;
+    let cardsInAntiIdentityCrossed = 0;
+    for (let rowIdx = 0; rowIdx < paginatedCards.length; rowIdx++) {
+      // top-left to bottom-right
+      if (paginatedCards[rowIdx][rowIdx].isCrossed) cardsInIdentityCrossed++;
 
-    // bottom-right to top-left
-    // .length returns 1-based, so we need to subtract 1
-    const antiIdentityIndex = paginatedCards[rowIdx].length - 1 - rowIdx;
-    antiIdentityCrossed.push(paginatedCards[rowIdx][antiIdentityIndex].isCrossed);
+      // bottom-right to top-left
+      // .length returns 1-based, so we need to subtract 1
+      const antiIdentityIndex = paginatedCards[rowIdx].length - 1 - rowIdx;
+      if (paginatedCards[rowIdx][antiIdentityIndex].isCrossed) cardsInAntiIdentityCrossed++;
+    }
+    const isIdentityCrossed = cardsInIdentityCrossed === bingoSize;
+    const isAntiIdentityCrossed = cardsInAntiIdentityCrossed === bingoSize;
+
+    result = isIdentityCrossed || isAntiIdentityCrossed;
   }
-  const isIdentityCrossed = identityCrossed.every(Boolean);
-  const isAntiIdentityCrossed = antiIdentityCrossed.every(Boolean);
-
-  diagonalTicked.push(isIdentityCrossed, isAntiIdentityCrossed);
-  results.push(diagonalTicked.some(Boolean));
 
   // final bingo evaluation
-  isBingo.value = results.some(Boolean);
+  isBingo.value = result;
 });
 </script>
 
