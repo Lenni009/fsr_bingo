@@ -139,7 +139,7 @@ watchEffect(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5rem;
+  margin-block-end: 5rem;
 }
 
 .bingo-alert-wrapper {
