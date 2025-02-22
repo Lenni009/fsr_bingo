@@ -26,6 +26,7 @@ const crossUrl = crosses[randomCrossId];
 <style scoped>
 .card-container {
   all: unset;
+  container-type: inline-size;
   position: relative;
   display: flex;
   justify-content: center;
