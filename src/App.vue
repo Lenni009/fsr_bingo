@@ -116,6 +116,7 @@ watchEffect(() => {
   max-width: 900px;
   padding-inline: 1rem;
   margin-inline: auto;
+  margin-block-end: 5rem;
 }
 
 .header {
@@ -128,14 +129,6 @@ watchEffect(() => {
   grid-template-columns: repeat(v-bind(bingoSize), 1fr);
   gap: 1rem;
   flex: 1;
-}
-
-.main-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-block-end: 5rem;
 }
 
 .bingo-alert-wrapper {
@@ -159,11 +152,11 @@ watchEffect(() => {
     border: 2px solid var(--fsr-color-medium);
     border-radius: var(--border-radius);
     color: var(--fsr-color-medium);
+    cursor: pointer;
     transition:
       border-color var(--transition),
       color var(--transition),
       background-color var(--transition);
-    cursor: pointer;
 
     &:hover {
       background-color: var(--fsr-color-medium);
