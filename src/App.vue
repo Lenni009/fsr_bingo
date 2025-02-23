@@ -76,10 +76,9 @@ watchEffect(() => {
 
 <template>
   <div class="container">
-    <header>
+    <header class="header">
       <img
         alt="FSR-BIMgo Logo"
-        class="main-img"
         src="./assets/logo.png"
       />
     </header>
@@ -119,9 +118,9 @@ watchEffect(() => {
   margin-inline: auto;
 }
 
-.main-img {
-  display: block;
-  margin-inline: auto;
+.header {
+  display: flex;
+  justify-content: center;
 }
 
 .card-grid {
