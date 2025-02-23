@@ -18,6 +18,7 @@ const crossUrl = crosses[randomCrossId];
       :src="crossUrl"
       alt="Kreuz"
       class="cross"
+      draggable="false"
     />
     <span class="btn-text">{{ text }}</span>
   </button>
