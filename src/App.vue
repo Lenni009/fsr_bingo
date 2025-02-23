@@ -100,10 +100,7 @@ watchEffect(() => {
           </form>
         </div>
       </dialog>
-      <div
-        :style="`--bingo-size: ${bingoSize}`"
-        class="card-grid"
-      >
+      <div class="card-grid">
         <Card
           v-for="(card, index) in cardObjects"
           v-bind="card"
@@ -129,7 +126,7 @@ watchEffect(() => {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(var(--bingo-size), 1fr);
+  grid-template-columns: repeat(v-bind(bingoSize), 1fr);
   gap: 1rem;
   flex: 1;
 }
