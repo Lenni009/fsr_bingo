@@ -83,7 +83,7 @@ watchEffect(() => {
       />
     </header>
 
-    <main class="main-container">
+    <main>
       <dialog
         class="bingo-alert-wrapper"
         ref="bingoDialog"
