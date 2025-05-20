@@ -2,10 +2,16 @@ name: Build
 
 run-name: Build Code
 
-on: push
+on:
+  - push
+  - workflow_dispatch
 
 permissions:
   contents: write
+
+concurrency:
+  group: "build"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -28,42 +34,7 @@ jobs:
           directory: dist
           overwrite: true
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          path: dist
-
-  deploy-main:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref_name == 'main'
-
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
-
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: artifact # The folder the action should deploy.
-
-  deploy-branch:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref_name != 'main'
-
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: artifact # The folder the action should deploy.
-          target-folder: ${{ github.ref_name }}
+          folder: dist # The folder the action should deploy.
