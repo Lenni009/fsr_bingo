@@ -22,4 +22,5 @@ export const cards = [
   'Gute Programmierer haben maximal 30 Zeilen gleichzeitig auf dem Bildschirm!',
   'Verbrennen Sie dafür keinen Regenwald!',
   '*Rant über Faschos*',
+  '*Holt den Zeigestab raus*',
 ];
