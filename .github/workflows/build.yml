@@ -41,13 +41,11 @@ jobs:
     steps:
       - name: Download Artifact
         uses: actions/download-artifact@v4
-        with:
-          path: dist
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist # The folder the action should deploy.
+          folder: artifact # The folder the action should deploy.
 
   deploy-branch:
     needs: build
@@ -57,11 +55,9 @@ jobs:
     steps:
       - name: Download Artifact
         uses: actions/download-artifact@v4
-        with:
-          path: dist
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist # The folder the action should deploy.
+          folder: artifact # The folder the action should deploy.
           target-folder: ${{ github.head_ref }}
