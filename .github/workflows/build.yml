@@ -2,16 +2,10 @@ name: Build
 
 run-name: Build Code
 
-on:
-  push:
-    branches: ['main']
+on: push
 
 permissions:
   contents: write
-
-concurrency:
-  group: "build"
-  cancel-in-progress: true
 
 jobs:
   build:
@@ -34,7 +28,26 @@ jobs:
           directory: dist
           overwrite: true
 
+  deploy-main:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.head_ref == 'main'
+
+    steps:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist # The folder the action should deploy.
+
+
+  deploy-branch:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.head_ref != 'main'
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # The folder the action should deploy.
+          target-folder: ${{ github.head_ref }}
