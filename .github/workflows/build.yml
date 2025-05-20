@@ -28,12 +28,20 @@ jobs:
           directory: dist
           overwrite: true
 
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: dist
+
   deploy-main:
     needs: build
     runs-on: ubuntu-latest
     if: github.head_ref == 'main'
 
     steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -46,6 +54,9 @@ jobs:
     if: github.head_ref != 'main'
 
     steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
