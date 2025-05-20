@@ -20,4 +20,6 @@ export const cards = [
   '*droppt random fact*',
   'Nochmal nach vorne gucken!',
   'Gute Programmierer haben maximal 30 Zeilen gleichzeitig auf dem Bildschirm!',
+  'Verbrennen Sie dafür keinen Regenwald!',
+  '*Rant über Faschos*',
 ];
