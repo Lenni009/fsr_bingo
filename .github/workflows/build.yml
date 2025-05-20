@@ -36,7 +36,7 @@ jobs:
   deploy-main:
     needs: build
     runs-on: ubuntu-latest
-    if: github.head_ref == 'main'
+    if: github.ref_name == 'main'
 
     steps:
       - name: Download Artifact
@@ -52,7 +52,7 @@ jobs:
   deploy-branch:
     needs: build
     runs-on: ubuntu-latest
-    if: github.head_ref != 'main'
+    if: github.ref_name != 'main'
 
     steps:
       - name: Download Artifact
